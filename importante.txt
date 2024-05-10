@@ -1,0 +1,4 @@
+estou tendo o mesmo problema nos teste1.py e teste2.py - decodificação (e não descobri o motivo e muito menos como resolver)
+
+quando tentei interagir com o banco no teste.py também tive erro de decodificação, então deixei só a conexão pq foi o único teste que deu certo de banco
+
