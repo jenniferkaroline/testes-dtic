@@ -10,7 +10,6 @@ try:
         user='postgres',
         password='2005jenni',
         host='localhost',
-        port="5433",
     )
     
     cursor = connection.cursor()

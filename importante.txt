@@ -11,6 +11,8 @@ solicitação 1: POST -> http://localhost:5000/criarPessoa
 solicitação 2: DELETE -> http://localhost:5000/excluirPessoa/id
 
 
+
+
 solicitação 3: PUT -> http://localhost:5000/atualizarPessoa/id
 
 { aqui são os dados atualizados
