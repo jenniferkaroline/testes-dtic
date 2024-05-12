@@ -26,16 +26,15 @@ def index():
 def criarPessoa():
     try:
         data = request.json 
-        if data is None:
+        if data is None: #verificando se o usuário não inseriu nenhum dado
             return 'Nenhum dado recebido'
 
         nome = data.get('nome')
         idade = data.get('idade')
         
-        if nome is None or idade is None:
+        if nome is None or idade is None: #verificando se deixou algum campo nulo
             return 'Nome e Idade não podem ser nulos'
 
-        #add dados na tabela pessoa
         cursor.execute("INSERT INTO pessoa (nome, idade) VALUES (%s, %s)", (nome, idade))
         connection.commit()
 
@@ -49,7 +48,8 @@ def listarPessoas():
     try:
         cursor.execute("SELECT * FROM pessoa")
         pessoas = cursor.fetchall()
-        return jsonify(pessoas)
+        return jsonify(pessoas) #retornando as colunas da tabela pessoa
+    
     except (Exception, psycopg2.Error) as error:
         return ('Erro ao listar pessoas: ', error)
 
@@ -58,8 +58,8 @@ def excluirPessoa(id):
     try:
         cursor.execute("DELETE FROM pessoa WHERE id = %s", (id,))
         connection.commit()
-
         return 'Pessoa excluída com sucesso'
+    
     except (Exception, psycopg2.Error) as error:
         return ('Erro ao excluir pessoa: ', error)
 
@@ -68,14 +68,22 @@ def excluirPessoa(id):
 def atualizarPessoa(id):
     try:
         data = request.json 
+
+        if 'nome' not in data or 'idade' not in data: #caso o usuário não tenha enviado os dados para a atualização e solicitou mesmo assim
+            return 'Dados incompletos para atualização'
+
+        novoNome = data['nome']
         novaIdade = data['idade']
+        print("Novo nome: ", novoNome)
+        print("Nova idade: ", novaIdade)
 
-        cursor.execute("UPDATE pessoa SET idade = %s WHERE id = %s", (novaIdade, id))
+        cursor.execute("UPDATE pessoa SET nome = %s, idade = %s WHERE id = %s", (novoNome, novaIdade, id))
         connection.commit()
-
-        return 'Pessoa atualizada com sucesso'
+        return 'Dados Atualizados'
+    
     except (Exception, psycopg2.Error) as error:
-        return ('Erro ao atualizar pessoa: ', error)
+        print("Erro:", error)
+        return 'Erro ao atualizar pessoa'
 
 
 if __name__ == "__main__":
