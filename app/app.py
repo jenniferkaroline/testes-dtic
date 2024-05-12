@@ -26,8 +26,14 @@ def index():
 def criarPessoa():
     try:
         data = request.json 
-        nome = data['nome']
-        idade = data['idade']
+        if data is None:
+            return 'Nenhum dado recebido'
+
+        nome = data.get('nome')
+        idade = data.get('idade')
+        
+        if nome is None or idade is None:
+            return 'Nome e Idade não podem ser nulos'
 
         #add dados na tabela pessoa
         cursor.execute("INSERT INTO pessoa (nome, idade) VALUES (%s, %s)", (nome, idade))
@@ -35,7 +41,8 @@ def criarPessoa():
 
         return 'Pessoa criada com sucesso'
     except (Exception, psycopg2.Error) as error:
-        return ('Erro ao criar pessoa: ', error) 
+        return ('Erro ao criar pessoa: ', error)
+
 
 @app.route('/listarPessoas', methods=['GET'])
 def listarPessoas():
