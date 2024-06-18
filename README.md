@@ -1,1 +1,1 @@
-
+- Repositório destinado a testes durante estágio na Diretoria de Tecnologia Inovação e Comunicação (DTIC).
