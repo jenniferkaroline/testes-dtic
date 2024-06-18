@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar Senha</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <section id="form-alter" class="containerA">
+        <div class="alter">
+            <h1>Alterar Senha:</h1>
+            <div class="form-alter">
+                <form method="POST">
+                    <fieldset>
+                        <label for="current-password">Senha Atual: *</label>
+                        <div>
+                            <input type="password" id="current-password" name="current-password" placeholder="************" required>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <label for="new-password">Nova Senha: *</label>
+                        <div>
+                            <input type="password" id="new-password" name="new-password" placeholder="************" required>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <label for="confirm-password">Confirmar Nova Senha: *</label>
+                        <div>
+                            <input type="password" id="confirm-password" name="confirm-password" placeholder="************" required>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <button class="entrar" id="alterar" type="submit">Alterar <i class="fa-solid fa-save"></i></button>
+                    </fieldset>
+                </form>
+                <p><a href="/login">Voltar ao Login</a></p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

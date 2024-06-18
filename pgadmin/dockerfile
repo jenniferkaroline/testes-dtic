@@ -1,0 +1,2 @@
+# Usa a imagem oficial do pgAdmin
+FROM dpage/pgadmin4

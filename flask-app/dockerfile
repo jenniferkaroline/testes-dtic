@@ -1,0 +1,22 @@
+# Usa uma imagem base do Python
+FROM python:3.8-slim
+
+# Define o diretório de trabalho
+WORKDIR /app
+
+# Instala as dependências
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+# Copia o restante dos arquivos do diretório local para o diretório de trabalho
+COPY . .
+
+# Expõe a porta onde o Flask vai rodar
+EXPOSE 5000
+
+# Define variáveis de ambiente para habilitar o modo debug
+ENV FLASK_APP=app.py
+ENV FLASK_ENV=development
+
+# Comando para rodar a aplicação
+CMD ["flask", "run", "--host=0.0.0.0", "--debug"]

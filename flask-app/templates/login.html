@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../static/login.css">
+</head>
+<body>
+    <section id="form-login" class="containerL">
+        <div class="login">
+            <h1>Inicie uma nova sessão:</h1>
+            <div class="form-login">
+                <form method="POST">
+                    <fieldset>
+                        <label for="login">CPF: *</label>
+                        <div>
+                            <input type="text" id="login" name="login" placeholder="xxx.xxx.xxx-xx" required>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <label for="senha">Senha: *</label>
+                        <div>
+                            <input type="password" id="senha" name="senha" placeholder="************" required>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <button class="entrar" id="entrar" type="submit">Entrar <i class="fa-solid fa-sign-in-alt"></i></button>
+                    </fieldset>
+                </form>
+                <p><a href="/esqueci-minha-senha">Esqueci minha senha</a></p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
